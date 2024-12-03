@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choice</title>
+    <style>
+        html, body {
+            margin: 0; 
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row; /* 기본 좌우 배치 */
+            background-color: black;
+            overflow: hidden;
+        }
+        .half-screen {
+            width: 50%; /* 각 화면이 좌우 절반씩 차지 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white; /* 텍스트 기본 색상 */
+            background-color: black; /* 기본 배경 */
+        }
+        .left {
+            background-color: #2c3e50; /* 왼쪽 화면 배경색 */
+        }
+        .right {
+            background-color: #223344; /* 오른쪽 화면 배경색 */
+        }
+        .left-img, .right-img {
+            max-width: 70%; /* 이미지의 최대 너비 */
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* 호버 시 부드러운 전환 */
+        }
+        /* 호버 시 크기 증가 */
+        .left-img:hover, .right-img:hover {
+            transform: scale(1.1); /* 이미지 크기 10% 확대 */
+        }
+        .black-screen {
+            position: fixed;
+            top: 0; /* 페이지 로드 시 화면 덮음 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 100;
+            animation: fadeOutSlideUp 1s ease-in-out forwards; /* 페이드아웃과 함께 위로 올라감 */
+        }
+        @keyframes fadeOutSlideUp {
+            50% {
+                opacity: 1; /* 중간에 완전히 보임 */
+            }
+            100% {
+                top: -100%; /* 화면 위로 완전히 사라짐 */
+                opacity: 0; /* 페이드 아웃 */
+            }
+        }
+        @keyframes slideUp {
+            from {
+                top: 100%; /* 화면 아래에서 시작 */
+            }
+            to {
+                top: 0; /* 화면 위로 올라옴 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="black-screen" id="black-screen"></div> <!-- 검정 화면 -->
+
+    <div class="half-screen left">
+        <img src="hanla.png" alt="왼쪽 이미지" class="left-img" id="hanla">
+    </div>
+    <div class="half-screen right">
+        <img src="usbw.png" alt="오른쪽 이미지" class="right-img" id="usbw">
+    </div>
+
+    <script>
+        const blackScreen = document.getElementById('black-screen');
+
+        // 페이지 로드 후 검정 화면 애니메이션 설정
+        window.addEventListener('load', () => {
+            blackScreen.addEventListener('animationend', () => {
+                blackScreen.style.display = 'none'; // 애니메이션 종료 후 검정 화면 숨김
+            });
+        });
+
+        const hanla = document.getElementById('hanla');
+        const usbw = document.getElementById('usbw');
+
+        hanla.addEventListener('click', () => {
+            navigateWithAnimation('Hanlalist2.html'); // 클릭 시 이동할 페이지
+        });
+
+        usbw.addEventListener('click', () => {
+            navigateWithAnimation('Seoraklist2.html'); // 클릭 시 이동할 페이지
+        });
+
+        function navigateWithAnimation(targetUrl) {
+            blackScreen.style.display = 'block'; // 검정 화면 보이기
+            blackScreen.style.animation = 'slideUp 1s ease-in-out forwards'; // 이동 애니메이션 실행
+            blackScreen.addEventListener('animationend', () => {
+                window.location.href = targetUrl; // 애니메이션 끝난 후 페이지 이동
+            });
+        }
+    </script>
+</body>
+</html>

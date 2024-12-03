@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoraklist</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: black;
+            transition: background-color 1s ease-in-out;
+        }
+
+        .black-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 100;
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            background-color: #000000;
+            overflow: hidden;
+        }
+
+        .image {
+            width: 70%;
+            max-width: 600px;
+            height: auto;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            animation: slideUp 2s ease-in-out forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                top: 40%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .text-container {
+            position: absolute;
+            bottom: -100%;
+            left: 50px;
+            text-align: left;
+            color: white;
+            font-family: Arial, sans-serif;
+            animation: slideInText 2s ease-in-out forwards;
+            visibility: hidden;
+            width: 150%;
+        }
+
+        @keyframes slideInText {
+            to {
+                bottom: 20%;
+                visibility: visible;
+            }
+        }
+
+        .text-content {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            max-width: 100%;
+            margin: 0 auto;
+            margin-left: 5%;
+        }
+
+        .text-content strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .black-overlay {
+            position: fixed;
+            bottom: -100%; /* 처음에는 화면 아래에 숨김 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 200;
+            transition: bottom 1s ease-in-out;
+        }
+
+        @media screen and (max-width: 768px) {
+            .image {
+                width: 80%;
+            }
+
+            .text-container {
+                left: 20px;
+            }
+
+            .text-content {
+                font-size: 0.875rem;
+            }
+
+            .text-content strong {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="black-screen"></div>
+
+    <div class="container">
+        <img src="usbw.png" alt="설악산 이미지" class="image" id="animated-image">
+        <div class="text-container" id="text-container">
+            <div class="text-content">
+                <strong>Mt.Seorak</strong>
+                <p> 강원특별자치도 속초시와 양양,인제,고성군에 걸쳐 있는 산이다.<br>
+                    식생 분포가 다양하여 온대 중부지방의 대표적인 원시림 지역으로 꼽힌다. 882종의 관다발식물이 분포하며 <br>
+                이가운데 65종이 특산식물, 56종이 희귀식물이다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="black-overlay" id="black-overlay"></div>
+
+    <script>
+        const image = document.getElementById('animated-image');
+        const textContainer = document.getElementById('text-container');
+        const blackOverlay = document.getElementById('black-overlay');
+
+        window.addEventListener('load', () => {
+            // 텍스트 나타내기 (이미지 이동이 완료된 후)
+            image.addEventListener('animationend', (event) => {
+                if (event.animationName === 'slideUp') {
+                    textContainer.style.visibility = 'visible';
+                    textContainer.style.animation = 'slideInText 2s ease-in-out forwards';
+                }
+            });
+
+            // 배경색 변경
+            image.addEventListener('animationend', (event) => {
+                if (event.animationName === 'slideUp') {
+                    document.querySelector('html').style.backgroundColor = "#08211D";
+                }
+            });
+        });
+
+        // 마우스 휠 이벤트 처리
+        window.addEventListener('wheel', (event) => {
+            if (event.deltaY > 0) { // 마우스 휠을 아래로 내릴 때
+                blackOverlay.style.bottom = "0"; // 검은 화면 위로 이동
+            }
+        });
+
+        // 검은 화면이 완전히 올라왔을 때 다른 페이지로 이동
+        blackOverlay.addEventListener('transitionend', () => {
+            if (blackOverlay.style.bottom === "0px") { // 검은 화면이 다 올라왔을 때
+                window.location.href = "Mt.Seorak.html"; // 다음 페이지로 이동
+            }
+        });
+    </script>
+</body>
+</html>

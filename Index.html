@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* 스크롤 제거 */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .overlay {
+            position: fixed;
+            bottom: -100%; /* 처음에 화면 아래에 숨겨짐 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* 검정색 오퍼시티 70% */
+            transition: bottom 0.5s ease-in-out;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .show-overlay {
+            bottom: 0; /* 위로 올라오도록 */
+        }
+        .scroll-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 10; /* 다른 요소 위에 표시 */
+        }
+        .show-scroll {
+            opacity: 1;
+        }
+        .overlay-content {
+            color: white;
+            position: absolute;
+            left: 10rem;
+            bottom: 15rem;
+            text-align: left;
+        }
+        .overlay-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .overlay-description {
+            font-size: 1rem;
+        }
+        .black-screen {
+            position: fixed;
+            bottom: -100%; /* 처음에 화면 아래에 숨겨짐 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 2;
+            transition: bottom 0.5s ease-in-out;
+        }
+        .show-black-screen {
+            bottom: 0; /* 위로 올라오도록 */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="1.svg" alt="반응형 이미지">
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="overlay-content">
+            <div class="overlay-title">머릿말</div>
+            <div class="overlay-description">이 페이지는 설악산과 한라산의 자생식물을 정리한 페이지 입니다.<br>
+                북쪽에서는 금목서가 나지 않고 남쪽에서는 자작나무가 나지 않는다는 말에서 시작하여 중부지방과 남부지방의 산을 대표하는 설악산과 한라산을 비교하게 되었습니다. <br>
+                설악산은 한반도의 중부지방에 있는 산으로써 연평균 기온이 10℃를 넘지 않지만, 한라산이 포함된 제주도의 연평균 기온은 14℃에서 16℃ 입니다.<br></div>
+        </div>
+    </div>
+    <div class="scroll-text" id="scrollText">scroll</div>
+    <div class="black-screen" id="blackScreen"></div>
+
+    <script>
+        let isOverlayShown = false;
+        let scrolledAfterOverlay = false;
+
+        // 3초 후에 'scroll' 텍스트 나타나게 함
+        setTimeout(() => {
+            document.getElementById('scrollText').classList.add('show-scroll');
+        }, 3000);
+
+        // 스크롤 이벤트로 오버레이 작동 및 페이지 이동
+        window.addEventListener('wheel', (event) => {
+            const overlay = document.getElementById('overlay');
+            const scrollText = document.getElementById('scrollText');
+            const blackScreen = document.getElementById('blackScreen');
+
+            if (event.deltaY > 0 && !isOverlayShown) { // 첫 스크롤: 오버레이 올라옴
+                overlay.classList.add('show-overlay');
+                scrollText.style.display = 'none';
+                isOverlayShown = true;
+            } else if (event.deltaY > 0 && isOverlayShown && !scrolledAfterOverlay) { // 두 번째 스크롤: 검정색 화면 올라옴 후 페이지 이동
+                scrolledAfterOverlay = true;
+                blackScreen.classList.add('show-black-screen');
+                setTimeout(() => {
+                    window.location.href = 'Choice.html'; // 이동할 페이지 URL
+                }, 500); // 검정색 화면 애니메이션이 끝난 후 페이지 이동
+            } else if (event.deltaY < 0 && isOverlayShown) { // 위로 스크롤 시 오버레이 내려감
+                overlay.classList.remove('show-overlay');
+                isOverlayShown = false;
+                scrolledAfterOverlay = false;
+            }
+        });
+    </script>
+</body>
+</html>
