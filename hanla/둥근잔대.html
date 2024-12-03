@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>둥근잔대</title>
+    <style>
+        /* 기본 스타일 설정 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* 배경색 검정 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            position: absolute;
+            top: 3%; /* 위에서 3% */
+            left: 3%; /* 왼쪽에서 3% */
+            color: gray; /* 텍스트 색상 회색 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-size: 1.2rem; /* 텍스트 크기 */
+        }
+
+        /* 타이틀 박스 스타일 */
+        .title-box {
+            position: absolute;
+            top: 25%; /* 위쪽에서 25% */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 40%; /* 너비의 40% */
+            height: 15%; /* 높이의 15% */
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            display: flex;
+            align-items: center; /* 세로 가운데 정렬 */
+            justify-content: flex-start; /* 가로로 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            font-size: 4rem; /* 폰트 크기 조정 */
+            font-weight: bold;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 텍스트 박스 스타일 */
+        .text-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 60%; /* 너비의 60% */
+            height: 40%; /* 높이의 40% */
+            background-color: #313131;
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            border-radius: 10px;
+            overflow-y: auto; /* 스크롤 가능 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+            white-space: pre-line; /* 텍스트의 줄바꿈 처리 */
+        }
+
+        /* 사진 박스 스타일 */
+        .image-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            right: 5%; /* 오른쪽에서 5% */
+            width: 25%; /* 너비의 25% */
+            height: 44.5%; /* 높이의 44% */
+            background-image: url('둥근잔대.jpg'); /* 실제 이미지 경로 삽입 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 1200px) {
+            .title-box, .text-box {
+                left: 10%; /* 좌측 여백 유지 */
+                width: 80%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 30%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 18%; /* 높이 조정 */
+                font-size: 1.5rem; /* 글자 크기 축소 */
+            }
+
+            .text-box {
+                top: calc(10% + 18% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 30%; /* 높이 조정 */
+                font-size: 1rem; /* 글자 크기 축소 */
+            }
+
+            .image-box {
+                top: calc(10% + 18% + 5%); /* 이미지 위치 조정 */
+                width: 40%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 20%; /* 높이 조정 */
+                font-size: 1.2rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .text-box {
+                top: calc(10% + 20% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 35%; /* 높이 조정 */
+                font-size: 0.9rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 50%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <a href="../Mt.Hanla.html" class="back-button">뒤로가기</a>
+
+    <!-- 타이틀 박스 -->
+    <div class="title-box">
+        둥근잔대
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="text-box">
+        학학명 : Adenophora coronopifolia
+
+산에서 자란다. 뿌리는 굵고 깊이 들어가며 끝에서 많은 줄기가 뭉쳐나고 능선(稜線)이 있다. 높이는 15cm 정도이다. 잎은 어긋나고 원형 달걀 모양 또는 원형이며 길이 1∼1.5cm, 나비 8∼10mm로 끝이 뾰족하다. 잎 가장자리에 3쌍 정도의 톱니가 있으며 다소 뒤로 말리고 위쪽 잎은 작다.
+7∼8월에 하늘색 꽃이 피는데 1개 또는 2∼3개씩 총상(總狀)으로 달린다. 작은꽃자루에 털이 없다. 꽃받침조각은 바소꼴이고 길이 3∼5mm로 꽃받침통보다 짧거나 약간 길며 가장자리에 돌기 같은 털이 있는 것도 있다. 화관은 길이 17mm 정도로 갈래조각의 끝이 뾰족하다. 수술은 5개, 암술은 1개이고 씨방은 하위(下位)이다. 뿌리는 식용한다. 제주도 한라산 정상 부근에 분포한다.
+
+    </div>
+
+    <!-- 이미지 박스 -->
+    <div class="image-box"></div>
+</body>
+</html>

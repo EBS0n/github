@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한라돌쩌귀</title>
+    <style>
+        /* 기본 스타일 설정 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* 배경색 검정 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            position: absolute;
+            top: 3%; /* 위에서 3% */
+            left: 3%; /* 왼쪽에서 3% */
+            color: gray; /* 텍스트 색상 회색 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-size: 1.2rem; /* 텍스트 크기 */
+        }
+
+        /* 타이틀 박스 스타일 */
+        .title-box {
+            position: absolute;
+            top: 25%; /* 위쪽에서 25% */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 40%; /* 너비의 40% */
+            height: 15%; /* 높이의 15% */
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            display: flex;
+            align-items: center; /* 세로 가운데 정렬 */
+            justify-content: flex-start; /* 가로로 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            font-size: 4rem; /* 폰트 크기 조정 */
+            font-weight: bold;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 텍스트 박스 스타일 */
+        .text-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 60%; /* 너비의 60% */
+            height: 40%; /* 높이의 40% */
+            background-color: #313131;
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            border-radius: 10px;
+            overflow-y: auto; /* 스크롤 가능 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+            white-space: pre-line; /* 텍스트의 줄바꿈 처리 */
+        }
+
+        /* 사진 박스 스타일 */
+        .image-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            right: 5%; /* 오른쪽에서 5% */
+            width: 25%; /* 너비의 25% */
+            height: 44.5%; /* 높이의 44% */
+            background-image: url('한라돌쩌귀.jpg'); /* 실제 이미지 경로 삽입 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 1200px) {
+            .title-box, .text-box {
+                left: 10%; /* 좌측 여백 유지 */
+                width: 80%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 30%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 18%; /* 높이 조정 */
+                font-size: 1.5rem; /* 글자 크기 축소 */
+            }
+
+            .text-box {
+                top: calc(10% + 18% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 30%; /* 높이 조정 */
+                font-size: 1rem; /* 글자 크기 축소 */
+            }
+
+            .image-box {
+                top: calc(10% + 18% + 5%); /* 이미지 위치 조정 */
+                width: 40%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 20%; /* 높이 조정 */
+                font-size: 1.2rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .text-box {
+                top: calc(10% + 20% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 35%; /* 높이 조정 */
+                font-size: 0.9rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 50%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <a href="../Mt.Hanla.html" class="back-button">뒤로가기</a>
+
+    <!-- 타이틀 박스 -->
+    <div class="title-box">
+        한라돌쩌귀
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="text-box">
+        학명 : Aconitum japonicum subsp. napiforme
+
+한라산에서 자라고 돌쩌귀 종류라는 뜻의 이름이나, 그 외의 지역에서도 자란다. 여러해살이풀이며, 높이는 20~150㎝이다. 땅속에 독성이 있는 흑갈색의 뿌리가 있다.
+
+잎은 어긋나기하고 손바닥 모양이며, 3개로 완전히 갈라지고 가장자리에 찢긴 조각 모양의 큰 톱니가 있다. 길이는 6~15㎝, 폭은 7~18㎝이다. 양면에 굽은 털이 있거나 없다.
+
+꽃은 8~9월에 줄기 끝에 청자색으로 피며, 2~8개가 총상꽃차례 또는 산방꽃차례를 이룬다. 꽃자루에 굽은 털이 있다. 꽃받침조각은 5개이고 털이 있으며 꽃잎처럼 보인다. 꽃잎과 수술은 털이 없다. 암술은 3~5개이다.
+
+열매는 한 개의 봉선을 따라 벌어지는 골돌과(蓇葖果)이고, 긴 타원형이다.
+
+한라돌쩌귀는 투구꽃과 비교할 때, 꽃자루의 털이 굽은 점이 특징이다. 한라산에서 자라는 개체는 씨방에 털이 있고, 제주도의 저지대에서 자라는 개체는 씨방에 털이 없는 편이다.
+    </div>
+
+    <!-- 이미지 박스 -->
+    <div class="image-box"></div>
+</body>
+</html>

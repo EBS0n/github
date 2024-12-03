@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구름체꽃</title>
+    <style>
+        /* 기본 스타일 설정 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* 배경색 검정 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            position: absolute;
+            top: 3%; /* 위에서 3% */
+            left: 3%; /* 왼쪽에서 3% */
+            color: gray; /* 텍스트 색상 회색 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-size: 1.2rem; /* 텍스트 크기 */
+        }
+
+        /* 타이틀 박스 스타일 */
+        .title-box {
+            position: absolute;
+            top: 25%; /* 위쪽에서 25% */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 40%; /* 너비의 40% */
+            height: 15%; /* 높이의 15% */
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            display: flex;
+            align-items: center; /* 세로 가운데 정렬 */
+            justify-content: flex-start; /* 가로로 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            font-size: 4rem; /* 폰트 크기 조정 */
+            font-weight: bold;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 텍스트 박스 스타일 */
+        .text-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 60%; /* 너비의 60% */
+            height: 40%; /* 높이의 40% */
+            background-color: #313131;
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            border-radius: 10px;
+            overflow-y: auto; /* 스크롤 가능 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+            white-space: pre-line; /* 텍스트의 줄바꿈 처리 */
+        }
+
+        /* 사진 박스 스타일 */
+        .image-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            right: 5%; /* 오른쪽에서 5% */
+            width: 25%; /* 너비의 25% */
+            height: 44.5%; /* 높이의 44% */
+            background-image: url('구름체꽃.jpg'); /* 실제 이미지 경로 삽입 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 1200px) {
+            .title-box, .text-box {
+                left: 10%; /* 좌측 여백 유지 */
+                width: 80%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 30%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 18%; /* 높이 조정 */
+                font-size: 1.5rem; /* 글자 크기 축소 */
+            }
+
+            .text-box {
+                top: calc(10% + 18% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 30%; /* 높이 조정 */
+                font-size: 1rem; /* 글자 크기 축소 */
+            }
+
+            .image-box {
+                top: calc(10% + 18% + 5%); /* 이미지 위치 조정 */
+                width: 40%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 20%; /* 높이 조정 */
+                font-size: 1.2rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .text-box {
+                top: calc(10% + 20% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 35%; /* 높이 조정 */
+                font-size: 0.9rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 50%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <a href="../Mt.Hanla.html" class="back-button">뒤로가기</a>
+
+    <!-- 타이틀 박스 -->
+    <div class="title-box">
+        구름체꽃
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="text-box">
+        학명 : Scabiosa tschiliensis f. alpina (Nakai) W.T.Lee
+
+제주도 한라산, 평안 북도 묘향산과 함경 남북도의 고산에 나는 특산 식물.
+근생엽이 솔체꽃과는 달리 꽃이 필 때까지 있으며 줄기잎은 마주나기하고 긴 타원형 또는 난상 타원형이며 끝이 둔하거나 뾰족하고 가장자리에 결각상의 큰 톱니가 있으며 위로 올라가면서 우상으로 갈라지고 중앙부의 큰 잎이 길이 9cm, 폭 3cm이며 포는 선형이고 밋밋하다. 엽병은 날개가 있으며 밑부분이 다소 넓어져서 원줄기를 감싸고 잎몸과 더불어 백색털이 다소 밀생한다.
+꽃은 8월에 피며 하늘색으로서 머리모양꽃차례에 달리고 외총포편은 선상 피침형이며 양면에 털이 있고 끝이 뾰족하며 꽃이 필 때는 길이 5mm 정도이다. 가장자리의 꽃은 길이 13mm 정도고 겉에 털이 밀생하며 5개로 갈라지고 바깥열편이 가장 크며 중앙부의 꽃은 통상화로서 4개로 갈라진다. 꽃받침의 자침(刺針)이 다소 길다.
+
+    </div>
+
+    <!-- 이미지 박스 -->
+    <div class="image-box"></div>
+</body>
+</html>

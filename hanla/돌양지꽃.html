@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돌양지꽃</title>
+    <style>
+        /* 기본 스타일 설정 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* 배경색 검정 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            position: absolute;
+            top: 3%; /* 위에서 3% */
+            left: 3%; /* 왼쪽에서 3% */
+            color: gray; /* 텍스트 색상 회색 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-size: 1.2rem; /* 텍스트 크기 */
+        }
+
+        /* 타이틀 박스 스타일 */
+        .title-box {
+            position: absolute;
+            top: 25%; /* 위쪽에서 25% */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 40%; /* 너비의 40% */
+            height: 15%; /* 높이의 15% */
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            display: flex;
+            align-items: center; /* 세로 가운데 정렬 */
+            justify-content: flex-start; /* 가로로 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            font-size: 4rem; /* 폰트 크기 조정 */
+            font-weight: bold;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 텍스트 박스 스타일 */
+        .text-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 60%; /* 너비의 60% */
+            height: 40%; /* 높이의 40% */
+            background-color: #313131;
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            border-radius: 10px;
+            overflow-y: auto; /* 스크롤 가능 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+            white-space: pre-line; /* 텍스트의 줄바꿈 처리 */
+        }
+
+        /* 사진 박스 스타일 */
+        .image-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            right: 5%; /* 오른쪽에서 5% */
+            width: 25%; /* 너비의 25% */
+            height: 44.5%; /* 높이의 44% */
+            background-image: url('돌양지꽃.jpg'); /* 실제 이미지 경로 삽입 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 1200px) {
+            .title-box, .text-box {
+                left: 10%; /* 좌측 여백 유지 */
+                width: 80%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 30%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 18%; /* 높이 조정 */
+                font-size: 1.5rem; /* 글자 크기 축소 */
+            }
+
+            .text-box {
+                top: calc(10% + 18% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 30%; /* 높이 조정 */
+                font-size: 1rem; /* 글자 크기 축소 */
+            }
+
+            .image-box {
+                top: calc(10% + 18% + 5%); /* 이미지 위치 조정 */
+                width: 40%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 20%; /* 높이 조정 */
+                font-size: 1.2rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .text-box {
+                top: calc(10% + 20% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 35%; /* 높이 조정 */
+                font-size: 0.9rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 50%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <a href="../Mt.Hanla.html" class="back-button">뒤로가기</a>
+
+    <!-- 타이틀 박스 -->
+    <div class="title-box">
+        돌양지꽃
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="text-box">
+        학명 : Potentilla dickinsii Franch. & Sav. var. dickinsii
+
+돌양지꽃은 우리나라 각처의 산에서 자라는 다년생 초본이다. 생육환경은 안개가 많고 습기가 높은 곳의 바위틈에서 자란다. 키는 약 20㎝이고, 잎은 길이는 2㎝이고 깃 모양을 하고 있으며 밑부분의 잎은 작고 가장자리에 톱니가 있으며 앞면은 녹색이고 뒷면은 흰색이다. 꽃은 황색으로 줄기 끝이나 잎겨드랑이 사이에서 가는 꽃줄기에 달린다. 열매는 9월경에 달린다. 잎만 보면 일반 양지꽃과 별다른 차이가 없지만 꽃이 전체적인 크기와 키를 보면 알 수 있다. 주로 관상용으로 쓰인다.
+
+    </div>
+
+    <!-- 이미지 박스 -->
+    <div class="image-box"></div>
+</body>
+</html>

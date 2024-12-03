@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바위미나리아재비</title>
+    <style>
+        /* 기본 스타일 설정 */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* 배경색 검정 */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 뒤로가기 버튼 스타일 */
+        .back-button {
+            position: absolute;
+            top: 3%; /* 위에서 3% */
+            left: 3%; /* 왼쪽에서 3% */
+            color: gray; /* 텍스트 색상 회색 */
+            text-decoration: none; /* 밑줄 제거 */
+            font-size: 1.2rem; /* 텍스트 크기 */
+        }
+
+        /* 타이틀 박스 스타일 */
+        .title-box {
+            position: absolute;
+            top: 25%; /* 위쪽에서 25% */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 40%; /* 너비의 40% */
+            height: 15%; /* 높이의 15% */
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            display: flex;
+            align-items: center; /* 세로 가운데 정렬 */
+            justify-content: flex-start; /* 가로로 왼쪽 정렬 */
+            padding-left: 20px; /* 왼쪽 여백 추가 */
+            font-size: 4rem; /* 폰트 크기 조정 */
+            font-weight: bold;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 텍스트 박스 스타일 */
+        .text-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            left: 5%; /* 왼쪽에서 5% */
+            width: 60%; /* 너비의 60% */
+            height: 40%; /* 높이의 40% */
+            background-color: #313131;
+            color: rgb(255, 255, 255); /* 텍스트 색상 흰색 */
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            border-radius: 10px;
+            overflow-y: auto; /* 스크롤 가능 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+            white-space: pre-line; /* 텍스트의 줄바꿈 처리 */
+        }
+
+        /* 사진 박스 스타일 */
+        .image-box {
+            position: absolute;
+            top: calc(15% + 15% + 20%); /* 타이틀 박스 아래 */
+            right: 5%; /* 오른쪽에서 5% */
+            width: 25%; /* 너비의 25% */
+            height: 44.5%; /* 높이의 44% */
+            background-image: url('바위미나리아재비.jpg'); /* 실제 이미지 경로 삽입 */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
+        }
+
+        /* 반응형 디자인 */
+        @media screen and (max-width: 1200px) {
+            .title-box, .text-box {
+                left: 10%; /* 좌측 여백 유지 */
+                width: 80%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 30%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 18%; /* 높이 조정 */
+                font-size: 1.5rem; /* 글자 크기 축소 */
+            }
+
+            .text-box {
+                top: calc(10% + 18% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 30%; /* 높이 조정 */
+                font-size: 1rem; /* 글자 크기 축소 */
+            }
+
+            .image-box {
+                top: calc(10% + 18% + 5%); /* 이미지 위치 조정 */
+                width: 40%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .title-box {
+                top: 10%; /* 상단 여백 축소 */
+                height: 20%; /* 높이 조정 */
+                font-size: 1.2rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .text-box {
+                top: calc(10% + 20% + 5%); /* 조정된 타이틀 박스 아래 여백 */
+                height: 35%; /* 높이 조정 */
+                font-size: 0.9rem; /* 글자 크기 축소 */
+                left: 5%; /* 좌측 여백 축소 */
+                width: 90%; /* 너비 확대 */
+            }
+
+            .image-box {
+                width: 50%; /* 이미지 크기 조정 */
+                height: 30%; /* 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <a href="../Mt.Hanla.html" class="back-button">뒤로가기</a>
+
+    <!-- 타이틀 박스 -->
+    <div class="title-box">
+        바위미나리아재비
+    </div>
+
+    <!-- 텍스트 박스 -->
+    <div class="text-box">
+        학명 : Ranunculus crucilobus H.Lev.
+
+제주도 한라산 고지 풀밭에 나는 특산 다년초. 키는 10cm 가량. 전초에 갈색의 융모가 퍼져 남. 땅속줄기는 짧고 비대하며, 수염뿌리가 많음. 근생엽은 긴 잎자루가 있고, 3갈래, 갈래의 가장 가장자리에 결각상 또는 거친 톱니가 있음. 경생엽은 선형이며, 3갈래.
+    </div>
+
+    <!-- 이미지 박스 -->
+    <div class="image-box"></div>
+</body>
+</html>
